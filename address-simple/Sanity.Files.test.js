@@ -23,6 +23,16 @@ describe('Files Exists', () => {
         expect(elvenCode.elfUtils.fileExists(fileName)).toBe(true);
     });
 
+    it('checks if source/ElfHeader.js exists', () => {
+        const fileName = __dirname + '/../source/ElfHeader.js';
+        expect(elvenCode.elfUtils.fileExists(fileName)).toBe(true);
+    });
+
+    it('checks if source/tileData.js exists', () => {
+        const fileName = __dirname + '/../source/tileData.js';
+        expect(elvenCode.elfUtils.fileExists(fileName)).toBe(true);
+    });
+
     it('checks if source/Go.test.js exists', () => {
         const fileName = __dirname + '/../source/Go.test.js';
         expect(elvenCode.elfUtils.fileExists(fileName)).toBe(true);
