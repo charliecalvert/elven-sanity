@@ -2,43 +2,45 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from '../components/App';
 import elfUtils from 'elven-code';
-import {appInit} from '../app-init';
+import { appInit } from '../app-init';
 import Adapter from 'enzyme-adapter-react-16';
 import ElfDebugEnzyme from '../tests/ElfDebugEnzyme';
-import {configure, shallow} from 'enzyme';
-
-// Install elfUtils: npm i elven-code
+import { configure, shallow } from 'enzyme';
 
 const elfDebugEnzyme = new ElfDebugEnzyme(false, 'App.test.js', true);
-configure({adapter: new Adapter()});
+configure({ adapter: new Adapter() });
 
-describe('App Tests', () => {
+describe('Sanity App Tests', () => {
+
+    it('proves we can run a test', () => {
+        expect(true).toBe(true);
+    });
 
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<App appInit={appInit}/>, div);
+        ReactDOM.render(<App appInit={appInit} />, div);
         ReactDOM.unmountComponentAtNode(div);
     });
 
-    it('includes the method setData', () => {
-        const wrapper = shallow(<App appInit={appInit}/>);
+    it('App.js includes the method setData', () => {
+        const wrapper = shallow(<App appInit={appInit} />);
         expect(wrapper.instance().setData).toBeDefined();
         expect(wrapper.instance().setGistList).toBeDefined();
         expect(wrapper.instance().queryServer).toBeDefined();
     });
 
-    it('includes the method setGistList', () => {
-        const wrapper = shallow(<App appInit={appInit}/>);
+    it('App.js includes the method setGistList', () => {
+        const wrapper = shallow(<App appInit={appInit} />);
         expect(wrapper.instance().setGistList).toBeDefined();
     });
 
-    it('includes the method fetchGistList', () => {
-        const wrapper = shallow(<App appInit={appInit}/>);
+    it('App.js includes the method fetchGistList', () => {
+        const wrapper = shallow(<App appInit={appInit} />);
         expect(wrapper.instance().fetchGistList).toBeDefined();
     });
 
-    it('includes the method queryServer', () => {
-        const wrapper = shallow(<App appInit={appInit}/>);
+    it('App.js includes the method queryServer', () => {
+        const wrapper = shallow(<App appInit={appInit} />);
         expect(wrapper.instance().queryServer).toBeDefined();
     });
 
