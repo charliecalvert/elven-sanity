@@ -73,4 +73,11 @@ describe('Sanity App Tests', () => {
         const fileName = __dirname + '/../../src/components/TestRoutes.js';
         expect(elfUtils.elfUtils.fileExists(fileName)).toBe(true);
     });
+
+    it('checks if ShowResult Server exists', () => {
+        const fileName = __dirname + '/../../src/components/ShowResultServer.js';
+        expect(elfUtils.elfUtils.fileExists(fileName)).toBe(true);
+    });
+
+
 });
