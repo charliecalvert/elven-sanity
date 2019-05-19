@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Adapter from 'enzyme-adapter-react-16';
 import ElfDebugEnzyme from '../tests/ElfDebugEnzyme';
 import { configure, shallow } from 'enzyme';
-import { GetGist } from '../components/GetGist';
+import GetGist from '../components/GetGist';
 
 const elfDebugEnzyme = new ElfDebugEnzyme(false, 'App.test.js', true);
 configure({ adapter: new Adapter() });

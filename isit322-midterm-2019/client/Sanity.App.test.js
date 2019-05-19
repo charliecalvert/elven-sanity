@@ -79,5 +79,9 @@ describe('Sanity App Tests', () => {
         expect(elfUtils.elfUtils.fileExists(fileName)).toBe(true);
     });
 
+    it('checks if elf-styles, the global place to define MUI styles, exists', () => {
+        const fileName = __dirname + '/../../src/components/elf-styles.js';
+        expect(elfUtils.elfUtils.fileExists(fileName)).toBe(true);
+    });
 
 });
