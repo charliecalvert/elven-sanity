@@ -1,12 +1,8 @@
 import React from 'react';
-import elvenCode from 'elven-code';
 import ReactDOM from 'react-dom';
 import App from '../source/App';
 import Go from '../source/Go';
 import First from '../source/First';
-import Lister from '../source/AddressLister';
-import AddressForm from '../source/AddressForm';
-import AddressShow from '../source/AddressShow';
 
 describe('Components Suite', () => {
 
