@@ -2,25 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Adapter from 'enzyme-adapter-react-16';
 //import ElfDebugEnzyme from '../tests/ElfDebugEnzyme';
-import {configure, shallow} from 'enzyme';
-import GetGist from '../components/GetGist';
-import {Grid} from "@material-ui/core";
-
+import {configure} from 'enzyme';
+import GetRepos from '../components/GetRepos';
+import {appInit} from '../app-init';
+import { createShallow } from '@material-ui/core/test-utils';
+import Grid from "@material-ui/core/Grid";
 //const elfDebugEnzyme = new ElfDebugEnzyme(false, 'App.test.js', true);
 configure({adapter: new Adapter()});
 
-describe('Sanity GetGist Layout Tests', () => {
+describe('Sanity GetRepos Layout Tests', () => {
 
     let wrapper = null;
+    let shallow;
 
     beforeEach(() => {
-        wrapper = shallow(<GetGist
-            queryServer={() => {
-            }}
-            fetchGistList={() => {
-            }}
+        shallow = createShallow();
+        wrapper = shallow(<GetRepos
+            queryServer={() => { }}
+            fetchRepoList={() => { }}
             result={'success'}
-            gistList={[{id: 3}]}
+            repoList={appInit.repoList}
         />,).dive();
     });
 
@@ -35,19 +36,21 @@ describe('Sanity GetGist Layout Tests', () => {
     it('renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(
-            <GetGist
-                queryServer={() => {}}
-                fetchGistList={() => {}}
+            <GetRepos
+                queryServer={() => {
+                }}
+                fetchRepoList={() => {
+                }}
                 result={'success'}
-                gistList={[{ id: 3 }]}
+                repoList={appInit.repoList}
             />,
             div
         );
         ReactDOM.unmountComponentAtNode(div);
     });
 
-    it('checks that getGist is a function', () => {
-        expect(typeof GetGist).toBe('function');
+    it('checks that GetRepos is a function', () => {
+        expect(typeof GetRepos).toBe('function');
     });
 
     it('checks that we use CssBaseLine', () => {
@@ -55,8 +58,8 @@ describe('Sanity GetGist Layout Tests', () => {
     });
 
     it('checks that we use backDiv3', () => {
-        console.log(wrapper.find('div').debug());
-        expect(wrapper.find('div').first().length).toBe(1);
+        console.log(wrapper.find('div').first().props().className.includes('backDiv3'));
+        expect(wrapper.find('div').first().props().className.includes('backDiv3')).toBe(true);
     });
 
     it('checks that we use className layout in second item', () => {

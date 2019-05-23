@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Adapter from 'enzyme-adapter-react-16';
-import ElfDebugEnzyme from '../tests/ElfDebugEnzyme';
 import { configure, shallow } from 'enzyme';
 import GetGist from '../components/GetGist';
 
-const elfDebugEnzyme = new ElfDebugEnzyme(false, 'App.test.js', true);
 configure({ adapter: new Adapter() });
 
 describe('Check Gist Display Suite', () => {
@@ -18,6 +16,10 @@ describe('Check Gist Display Suite', () => {
             result={'success'}
             gistList={[{ id: 3 }]}
         />,).dive();
+    });
+
+    afterEach(() => {
+        wrapper = null;
     });
 
     it('proves we can run a test', () => {
