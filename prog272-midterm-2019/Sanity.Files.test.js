@@ -1,7 +1,7 @@
 import React from 'react';
 import elvenCode from 'elven-code';
 
-describe('Files Exists', () => {
+describe('Ensure Files Exist Suite', () => {
 
     it('checks if source/control.js exists', () => {
         const fileName = __dirname + '/../source/control.js';

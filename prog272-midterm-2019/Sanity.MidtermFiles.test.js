@@ -18,17 +18,6 @@ describe('Midterm Files Suite', () => {
         clearLocalStorage();
     });
 
-    it('checks if source/AddressForm exists', () => {
-        const fileName = __dirname + '/../source/AddressForm.js';
-        expect(elvenCode.elfUtils.fileExists(fileName)).toBe(true);
-    });
-
-    it('renders AddressForm without crashing', () => {
-        const div = document.createElement('div');
-        ReactDOM.render(<AddressForm />, div);
-        ReactDOM.unmountComponentAtNode(div);
-    });
-
     it('checks if source/AddressShow exists', () => {
         const fileName = __dirname + '/../source/AddressShow.js';
         expect(elvenCode.elfUtils.fileExists(fileName)).toBe(true);
@@ -40,8 +29,19 @@ describe('Midterm Files Suite', () => {
         ReactDOM.unmountComponentAtNode(div);
     });
 
+    it('checks if source/AddressForm exists', () => {
+        const fileName = __dirname + '/../source/AddressForm.js';
+        expect(elvenCode.elfUtils.fileExists(fileName)).toBe(true);
+    });
+
+    it('renders AddressForm without crashing', () => {
+        const div = document.createElement('div');
+        ReactDOM.render(<AddressForm />, div);
+        ReactDOM.unmountComponentAtNode(div);
+    });
+
     it('checks if source/Lister exists', () => {
-        const fileName = __dirname + '/../source/AddressShow.js';
+        const fileName = __dirname + '/../source/AddressLister.js';
         expect(elvenCode.elfUtils.fileExists(fileName)).toBe(true);
     });
 
@@ -50,6 +50,5 @@ describe('Midterm Files Suite', () => {
         ReactDOM.render(<AddressLister />, div);
         ReactDOM.unmountComponentAtNode(div);
     });
-
 
 });
