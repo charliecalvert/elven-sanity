@@ -5,7 +5,6 @@ import Go from '../source/Go';
 import First from '../source/First';
 
 describe('Components Suite', () => {
-
     it('renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(<App />, div);
@@ -23,5 +22,4 @@ describe('Components Suite', () => {
         ReactDOM.render(<First />, div);
         ReactDOM.unmountComponentAtNode(div);
     });
-
 });

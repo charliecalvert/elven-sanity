@@ -1,13 +1,18 @@
-import React from 'react';
-import { clearLocalStorage, getByIndex, getCount } from '../source/assets/elf-local-storage';
-import { dataLoaded, setLocalStorage } from '../source/assets/address-local-storage';
+import {
+    clearLocalStorage,
+    getByIndex,
+    getCount
+} from '../source/assets/elf-local-storage';
+import {
+    dataLoaded,
+    setLocalStorage
+} from '../source/assets/address-local-storage';
 import elvenCode from 'elven-code';
-import {testData} from './test-data';
+import { testData } from './test-data';
 
 describe('Local Storage', () => {
-
     beforeEach(() => {
-       setLocalStorage(testData);
+        setLocalStorage(testData);
     });
 
     afterEach(() => {
@@ -33,27 +38,28 @@ describe('Local Storage', () => {
     });
 
     it('checks that count = 2', () => {
-       expect(getCount()).toBe('2');
+        expect(getCount()).toBe('2');
     });
 
     it('checks if one record is set', () => {
         const address = getByIndex(0);
 
-        expect(address).toEqual(expect.objectContaining({
+        expect(address).toEqual(
+            expect.objectContaining({
                 firstName: 'Lamar',
-                lastName: 'Alexander',
-            }),
+                lastName: 'Alexander'
+            })
         );
     });
 
     it('checks if one record is set', () => {
         const address = getByIndex(1);
 
-        expect(address).toEqual(expect.objectContaining({
+        expect(address).toEqual(
+            expect.objectContaining({
                 firstName: 'Susan',
-                lastName: 'Collins',
-            }),
+                lastName: 'Collins'
+            })
         );
     });
-
 });

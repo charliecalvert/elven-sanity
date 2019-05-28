@@ -1,8 +1,6 @@
-import React from 'react';
 import elvenCode from 'elven-code';
 
 describe('Ensure Files Exist Suite', () => {
-
     it('checks if source/control.js exists', () => {
         const fileName = __dirname + '/../source/control.js';
         expect(elvenCode.elfUtils.fileExists(fileName)).toBe(true);
@@ -72,5 +70,4 @@ describe('Ensure Files Exist Suite', () => {
         const fileName = __dirname + '/../webpack.config.js';
         expect(elvenCode.elfUtils.fileExists(fileName)).toBe(true);
     });
-
 });
