@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom';
 import AddressForm from '../source/AddressForm';
 import AddressShow from '../source/AddressShow';
 import {testData} from './test-data';
-import { setLocalStorage } from '../source/address-local-storage';
-import { clearLocalStorage } from '../source/elf-local-storage';
+import { setLocalStorage } from '../source/assets/address-local-storage';
+import { clearLocalStorage } from '../source/assets/elf-local-storage';
 import AddressLister from '../source/AddressLister';
 
 describe('Midterm Files Suite', () => {

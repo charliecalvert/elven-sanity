@@ -1,6 +1,6 @@
 import React from 'react';
-import { clearLocalStorage, getByIndex, getCount } from '../source/elf-local-storage';
-import { dataLoaded, setLocalStorage } from '../source/address-local-storage';
+import { clearLocalStorage, getByIndex, getCount } from '../source/assets/elf-local-storage';
+import { dataLoaded, setLocalStorage } from '../source/assets/address-local-storage';
 import elvenCode from 'elven-code';
 import {testData} from './test-data';
 
@@ -15,12 +15,12 @@ describe('Local Storage', () => {
     });
 
     it('checks if elf-local-storage exists', () => {
-        const fileName = __dirname + '/../source/elf-local-storage.js';
+        const fileName = __dirname + '/../source/assets/elf-local-storage.js';
         expect(elvenCode.elfUtils.fileExists(fileName)).toBe(true);
     });
 
     it('checks if address-local-storage exists', () => {
-        const fileName = __dirname + '/../source/elf-local-storage.js';
+        const fileName = __dirname + '/../source/assets/elf-local-storage.js';
         expect(elvenCode.elfUtils.fileExists(fileName)).toBe(true);
     });
 

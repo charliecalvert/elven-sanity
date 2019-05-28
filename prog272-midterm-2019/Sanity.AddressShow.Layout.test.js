@@ -6,8 +6,8 @@ import AddressShow from '../source/AddressShow';
 import { createShallow } from '@material-ui/core/test-utils';
 import {Grid} from "@material-ui/core";
 import {testData} from './test-data';
-import { setLocalStorage } from '../source/address-local-storage';
-import { clearLocalStorage } from '../source/elf-local-storage';
+import { setLocalStorage } from '../source/assets/address-local-storage';
+import { clearLocalStorage } from '../source/assets/elf-local-storage';
 
 configure({adapter: new Adapter()});
 
@@ -44,17 +44,8 @@ describe('Sanity GetRepos Layout Tests', () => {
         expect(typeof AddressShow).toBe('function');
     });
 
-    it('checks that we use CssBaseLine', () => {
-        expect(wrapper.find('WithStyles(CssBaseline)').length).toBe(1);
-    });
-
-    it('checks that we use backDiv3', () => {
-        console.log(wrapper.find('div').first().props().className.includes('backDiv3'));
-        expect(wrapper.find('div').first().props().className.includes('backDiv3')).toBe(true);
-    });
-
     it('checks that we use className layout in second item', () => {
-        expect(wrapper.find('div').get(1).props.className.includes('layout')).toBe(true);
+        expect(wrapper.find('div').get(0).props.className.includes('layout')).toBe(true);
     });
 
     it('checks that the first Grid has a spacing of 24', () => {
