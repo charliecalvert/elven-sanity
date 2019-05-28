@@ -11,7 +11,9 @@ import { clearLocalStorage } from '../source/assets/elf-local-storage';
 
 configure({adapter: new Adapter()});
 
-describe('Sanity GetRepos Layout Tests', () => {
+const debug = process.env.REACT_APP_ELF_LOGGER === 'sanity-address-show' ? console.log : () => {};
+
+describe('Sanity AddressShow Layout Tests', () => {
 
     let wrapper = null;
     let shallow;
@@ -49,12 +51,12 @@ describe('Sanity GetRepos Layout Tests', () => {
     });
 
     it('checks that the first Grid has a spacing of 24', () => {
-        console.log(wrapper.find(Grid).get(0).props.spacing);
+        debug(wrapper.find(Grid).get(0).props.spacing);
         expect(wrapper.find(Grid).get(0).props.spacing).toBe(24);
     });
 
     it('checks that the second Grid has xs=12', () => {
-        console.log(wrapper.find(Grid).get(1).props.xs);
+        debug(wrapper.find(Grid).get(1).props.xs);
         expect(wrapper.find(Grid).get(1).props.xs).toBe(12);
     });
 
