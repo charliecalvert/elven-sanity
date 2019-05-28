@@ -2,24 +2,29 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Adapter from 'enzyme-adapter-react-16';
 import { configure, shallow } from 'enzyme';
-import GetGist from '../components/GetGist';
+import GetUser from '../components/GetUser';
 import { Grid } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 
 configure({ adapter: new Adapter() });
 
-const debug = process.env.REACT_APP_ELF_LOGGER === 'get-user' ? console.log : () => {};
+const debug = process.env.REACT_APP_ELF_LOGGER === 'sanity-get-user' ? console.log : () => {
+};
 
-describe('Sanity GetGist Layout Tests', () => {
+describe('Sanity GetUser Layout Tests', () => {
     let wrapper = null;
 
     beforeEach(() => {
         wrapper = shallow(
-            <GetGist
+            <GetUser
                 queryServer={() => {}}
-                fetchGistList={() => {}}
                 result={'success'}
-                gistList={[{ id: 3 }]}
+                body={{
+                    login: 'unknown',
+                    id: 'unknown',
+                    avatar_url:
+                    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Wind-turbine-icon.svg/128px-Wind-turbine-icon.svg.png'
+                }}
             />
         ).dive();
     });
@@ -35,20 +40,21 @@ describe('Sanity GetGist Layout Tests', () => {
     it('renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(
-            <GetGist
+            <GetUser
                 queryServer={() => {}}
-                fetchGistList={() => {}}
                 result={'success'}
-                gistList={[{ id: 3 }]}
+                body={{
+                    login: 'unknown',
+                    id: 'unknown',
+                    avatar_url:
+                        'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Wind-turbine-icon.svg/128px-Wind-turbine-icon.svg.png'
+                }}
             />,
             div
         );
         ReactDOM.unmountComponentAtNode(div);
     });
 
-    it('checks that getGist is a function', () => {
-        expect(typeof GetGist).toBe('function');
-    });
 
     it('checks that we do NOT use CssBaseLine', () => {
         expect(wrapper.find('WithStyles(CssBaseline)').length).toBe(0);

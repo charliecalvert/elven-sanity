@@ -6,16 +6,17 @@ import GetGist from '../components/GetGist';
 
 configure({ adapter: new Adapter() });
 
-describe('Check Gist Display Suite', () => {
-
+describe('Check Gist withStyles Display Suite', () => {
     let wrapper = null;
     beforeEach(() => {
-        wrapper = shallow(<GetGist
-            queryServer={() => {}}
-            fetchGistList={() => {}}
-            result={'success'}
-            gistList={[{ id: 3 }]}
-        />,).dive();
+        wrapper = shallow(
+            <GetGist
+                queryServer={() => {}}
+                fetchGistList={() => {}}
+                result={'success'}
+                gistList={[{ id: 3 }]}
+            />
+        ).dive();
     });
 
     afterEach(() => {
@@ -60,7 +61,7 @@ describe('Check Gist Display Suite', () => {
         expect(wrapper.find('#files').length).toBe(1);
     });
 
-    it('checks that there is one img element in your component', () => {
+    it('checks that there is one img element the (avatarUrl) in your component', () => {
         expect(wrapper.find('img').length).toBe(1);
     });
 });
