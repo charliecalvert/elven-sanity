@@ -1,4 +1,4 @@
-import elfUtils from "elven-code";
+import elfUtils from 'elven-code';
 
 describe('Git Explorer confirm client, server and micros Suite', () => {
     it('proves we can run a test', () => {
@@ -29,5 +29,4 @@ describe('Git Explorer confirm client, server and micros Suite', () => {
         const fileName = __dirname + '/../micros/git-gist/source/control.js';
         expect(elfUtils.elfUtils.fileExists(fileName)).toBe(true);
     });
-
 });
