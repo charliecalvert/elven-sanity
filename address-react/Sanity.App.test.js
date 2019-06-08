@@ -64,8 +64,8 @@ describe('App Tests', () => {
             </Button>
         );
         expect(wrapper.containsMatchingElement(button)).toEqual(true);
-        expect(wrapper.find(Button).prop('id')).toEqual('getFileAction');
-        expect(wrapper.find(Button).prop('variant')).toEqual('contained');
-        expect(wrapper.find(Button).prop('color')).toEqual('primary');
+        expect(wrapper.find('#getFileAction').prop('id')).toEqual('getFileAction');
+        expect(wrapper.find('#getFileAction').prop('variant')).toEqual('contained');
+        expect(wrapper.find('#getFileAction').prop('color')).toEqual('primary');
     });
 });
