@@ -48,7 +48,7 @@ describe('Sanity GetGist Layout Tests', () => {
     });
 
     it('checks that getGist is a function', () => {
-        expect(typeof GetGist).toBe('function');
+        expect(typeof GetGist).toBe('object');
     });
 
     it('checks that we do NOT use CssBaseLine', () => {
@@ -81,9 +81,9 @@ describe('Sanity GetGist Layout Tests', () => {
         ).toBe(true);
     });
 
-    it('checks that the first Grid has a spacing of 24', () => {
+    it('checks that the first Grid has a spacing of 2', () => {
         debug(wrapper.find(Grid).get(0).props.spacing);
-        expect(wrapper.find(Grid).get(0).props.spacing).toBe(24);
+        expect(wrapper.find(Grid).get(0).props.spacing).toBe(2);
     });
 
     it('checks that the second Grid has xs=12', () => {

@@ -74,7 +74,8 @@ describe('Sanity GetUser Layout Tests', () => {
                 .find('div')
                 .first()
                 .props()
-                .className.includes('backDiv3')
+                .className
+                .includes('backDiv3')
         ).toBe(false);
     });
 
@@ -87,9 +88,9 @@ describe('Sanity GetUser Layout Tests', () => {
         ).toBe(true);
     });
 
-    it('checks that the first Grid has a spacing of 24', () => {
+    it('checks that the first Grid has a spacing of 2', () => {
         debug(wrapper.find(Grid).get(0).props.spacing);
-        expect(wrapper.find(Grid).get(0).props.spacing).toBe(24);
+        expect(wrapper.find(Grid).get(0).props.spacing).toBe(2);
     });
 
     it('checks that the second Grid has xs=12', () => {

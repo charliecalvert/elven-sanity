@@ -5,6 +5,7 @@ import { configure, shallow } from 'enzyme';
 import { TheTheme } from '../TheTheme';
 
 configure({ adapter: new Adapter() });
+const debug = process.env.REACT_APP_ELF_LOGGER === 'sanity-the-theme-test' ? console.log : () => {};
 
 describe('Sanity GetGist Layout Tests', () => {
     let wrapper = null;
@@ -32,10 +33,12 @@ describe('Sanity GetGist Layout Tests', () => {
     });
 
     it('checks that we use MuiThemeProvider', () => {
-        expect(wrapper.find('MuiThemeProviderOld').length).toBe(1);
+        expect(wrapper.find('ThemeProvider').length).toBe(1);
     });
 
     it('checks that we use CssBaseLine', () => {
-        expect(wrapper.find('WithStyles(CssBaseline)').length).toBe(1);
+        debug(wrapper.debug());
+        expect(wrapper.find('CssBaseline').length).toBe(1);
     });
+
 });
